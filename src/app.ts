@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import './controller/connection'
 
 const app = express();
 app.use(cors());
