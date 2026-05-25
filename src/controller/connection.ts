@@ -1,0 +1,18 @@
+
+import mongoose from "mongoose";
+
+const MONGO_URI = process.env.MONGO_URI as string;
+
+if (!MONGO_URI) {
+  throw new Error("❌ MONGO_URI is not defined in environment variables");
+}
+
+mongoose
+  .connect(MONGO_URI,{dbName:"text-app",autoCreate:true})
+  .then(() => {
+    console.log("✅ MongoDB connected");
+  })
+  .catch((error) => {
+    console.error("❌ MongoDB connection failed", error);
+    process.exit(1);
+  });
