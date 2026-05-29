@@ -1,23 +1,12 @@
-// import crypto from "crypto";
-// import * as bcrypt from "bcrypt";
+import crypto from "crypto";
 
+export const createOtp = (length = 6): string => {
 
+  let emailOtp = "";
 
-// export const createOtp = (length = 6): string => {
-//   let otp = "";
+  for (let i = 0; i < length; i++) {
+    emailOtp += crypto.randomInt(0, 10);
+  }
 
-//   for (let i = 0; i < length; i++) {
-//     otp += crypto.randomInt(0, 10);
-//   }
-
-//   return otp;
-// };
-
-
-
-const otpGenerator = (): string => {
-  const otp = Math.floor(100000 + Math.random() * 900000);
-  return otp.toString();
+  return emailOtp;
 };
-
-export default otpGenerator;
